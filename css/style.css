@@ -16,6 +16,15 @@
     width: 700px;
     height: 300px;
     position: relative;
+    display: none;
+}
+
+.item.active {
+    display : inline-block;
+    float: left;
+    width: 700px;
+    height: 300px;
+    position: relative;
 }
 
 .item img {

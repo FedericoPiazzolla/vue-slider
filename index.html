@@ -23,8 +23,8 @@
 
                 <!-- Big Img -->
                 <div 
-                class="item" 
                 v-for="(item, index) in slides" 
+                class="item" 
                 :class="(activeIndex === index) ? showClass : ''">
                     <img :src="item.image" :alt="item.title" />
                     <div class="text">
