@@ -32,6 +32,7 @@ createApp({
             ],
             activeIndex: 0,
             showClass: "active",
+            autoPlay: setInterval(this.showNext, 3000),
         };
     },
     methods: {
@@ -43,5 +44,11 @@ createApp({
             console.log("prev");
             (this.activeIndex === 0) ? this.activeIndex = this.slides.length - 1 : this.activeIndex--;
         },
-    },
+        startSlides() {
+            this.autoPlay = setInterval(this.showNext, 3000);
+        },
+        stopSlides(){
+            clearInterval(this.autoPlay);
+        }
+    }
 }).mount("#app");

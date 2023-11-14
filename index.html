@@ -23,6 +23,7 @@
 
                 <!-- Big Img -->
                 <div 
+                v-on:mouseover="startSlides" v-on:mouseleave="stopSlides"
                 v-for="(item, index) in slides" 
                 class="item" 
                 :class="(activeIndex === index) ? showClass : ''">
@@ -42,6 +43,7 @@
                     <!-- /Thumbs navigation -->
 
                     <div 
+                    v-on:mouseover="startSlides" v-on:mouseleave="stopSlides"
                     v-for="(item, index) in slides" 
                     class="thumb" 
                     :class="(activeIndex === index) ? showClass : ''">
