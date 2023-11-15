@@ -18,30 +18,25 @@
 
     <div id="app">
 
-        <div class="container">
-            <div class="slider-wrapper" tabindex="0">
+        <div class="container" @keyup.up="showPrev" @keyup.down="showNext">
+            <div class="slider-wrapper" tabindex="0" v-on:mouseover="stopSlides" v-on:mouseleave="startSlides">
 
                 <!-- Big Img -->
                 <div 
                 v-on:mouseover="stopSlides" 
-                v-on:mouseleave="startSlides"
-                v-for="(item, index) in slides" 
+                v-on:mouseleave="startSlides" 
                 class="item" 
-                :class="(activeIndex === index) ? showClass : ''"
                 >
-                    <img :src="item.image" :alt="item.title" />
+                    <img :src="slides[activeIndex].image" :alt="slides[activeIndex].title" />
                     <div class="text">
-                        <h3>{{ item.title }}</h3>
-                        <p>{{ item.text }}</p>
+                        <h3>{{ slides[activeIndex].title }}</h3>
+                        <p>{{ slides[activeIndex].text }}</p>
                     </div>
                 </div>
                 <!-- /Big Img -->
 
                 <!-- Thumbs -->
-                <div 
-                class="thumbs"
-                v-on:mouseover="stopSlides" 
-                v-on:mouseleave="startSlides">
+                <div class="thumbs">
                     <!-- Thumbs navigation -->
                     <div class="prev" @click="showPrev"></div>
                     <div class="next" @click="showNext"></div>
@@ -51,6 +46,7 @@
                     v-for="(item, index) in slides" 
                     class="thumb" 
                     :class="(activeIndex === index) ? showClass : ''"
+                    @click="showSlide(index)"
                     >
                         <img :src="item.image" alt="item.title">
                     </div>
